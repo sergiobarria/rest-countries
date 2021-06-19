@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './theme/GlobalStyles';
+import { lightTheme, darkTheme } from './theme/Themes';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 
-function App() {
+import HomeView from './views/HomeView';
+import DetailsView from './views/DetailsView';
+import Header from './components/Header';
+
+import { CountriesContextProvider } from './context/countries-context';
+import { ModalContextProvider } from './context/modal-context';
+
+const App = () => {
+  const [theme, setTheme] = useState('light');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <Router>
+        <GlobalStyles />
+        <Header currTheme={theme} themeToggler={setTheme} />
+        <Switch>
+          <CountriesContextProvider>
+            <ModalContextProvider>
+              <Redirect exact from="/" to="/all" />
+              <Route path="/all" component={HomeView} />
+              <Route path="/africa" component={HomeView} />
+              <Route path="/americas" component={HomeView} />
+              <Route path="/asia" component={HomeView} />
+              <Route path="/europe" component={HomeView} />
+              <Route path="/oceania" component={HomeView} />
+              <Route path="/details/:code" component={DetailsView} />
+            </ModalContextProvider>
+          </CountriesContextProvider>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
