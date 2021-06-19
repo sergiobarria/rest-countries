@@ -27,9 +27,9 @@ const DetailsView = () => {
   return (
     <Wrapper>
       <Container>
-        <button onClick={returnBtnHandler}>
+        <BackBtn onClick={returnBtnHandler}>
           <BsArrowLeft /> Back
-        </button>
+        </BackBtn>
 
         {isLoading ? <Spinner /> : countryDetails ? <CountryInfo /> : null}
       </Container>
@@ -40,25 +40,26 @@ const DetailsView = () => {
 const Wrapper = styled.div`
   margin: 2.5rem 0;
   padding: 0 1.75rem;
+`;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 24px;
-    border: none;
-    background-color: ${props => props.theme.elements};
-    color: ${props => props.theme.text};
-    border-radius: 5px;
-    font-weight: 300;
-    font-family: Nunito Sans, sans-serif;
-    font-size: 0.875rem;
-    cursor: pointer;
+const BackBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  border: none;
+  background-color: ${props => props.theme.elements};
+  color: ${props => props.theme.text};
+  border-radius: 5px;
+  font-weight: 300;
+  font-family: Nunito Sans, sans-serif;
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
 
-    svg {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-    }
+  svg {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
   }
 `;
 
