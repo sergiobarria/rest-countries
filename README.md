@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [URL here](https://www.frontendmentor.io/solutions/react-and-styled-components-to-fetch-data-from-api-o1-mHB2zP)
+- Live Site URL: [URL here](https://rest-countries-sb.netlify.app/all)
 
 ## My process
 
