@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import useCountries from '../hooks/useCountries';
 
@@ -13,7 +14,7 @@ const BorderCountries = () => {
           countryDetails.borderCountries.length > 0 &&
           countryDetails.borderCountries.map(({ name, code }) => (
             <BorderCountryBtn type="button" key={code}>
-              {name}
+              <NavLink to={`/details/${code.toLowerCase()}`}>{name}</NavLink>
             </BorderCountryBtn>
           ))}
       </BtnContainer>
@@ -48,9 +49,20 @@ const BorderCountryBtn = styled.button`
   font-weight: 300;
   font-family: Nunito Sans, sans-serif;
   font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
 
   &:not(:last-child) {
     margin-right: 1rem;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.text};
   }
 `;
 

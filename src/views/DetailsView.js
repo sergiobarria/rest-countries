@@ -27,9 +27,9 @@ const DetailsView = () => {
   return (
     <Wrapper>
       <Container>
-        <BackBtn onClick={returnBtnHandler}>
+        <CustomButton onClick={returnBtnHandler}>
           <BsArrowLeft /> Back
-        </BackBtn>
+        </CustomButton>
 
         {isLoading ? <Spinner /> : countryDetails ? <CountryInfo /> : null}
       </Container>
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   padding: 0 1.75rem;
 `;
 
-const BackBtn = styled.button`
+const CustomButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,6 +56,10 @@ const BackBtn = styled.button`
   font-size: 0.875rem;
   cursor: pointer;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    opacity: 0.6;
+  }
 
   svg {
     font-size: 1.5rem;
