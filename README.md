@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [URL here](https://www.frontendmentor.io/solutions/react-and-styled-components-to-fetch-data-from-api-o1-mHB2zP)
+- Solution URL: [URL here](https://www.frontendmentor.io/solutions/react-and-styled-components-to-fetch-data-from-api-xUBrEtxVi)
 - Live Site URL: [URL here](https://rest-countries-sb.netlify.app/all)
 
 ## My process
