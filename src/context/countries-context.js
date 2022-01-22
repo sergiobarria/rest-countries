@@ -26,7 +26,7 @@ export const CountriesContextProvider = props => {
   const getAllCountries = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get('https://restcountries.eu/rest/v2/all');
+      const res = await axios.get('https://restcountries.com/v2/all');
       const data = res.data;
 
       setCountries(data);
@@ -48,7 +48,7 @@ export const CountriesContextProvider = props => {
         setIsLoading(true);
 
         const res = await axios.get(
-          `https://restcountries.eu/rest/v2/region/${region}`
+          `https://restcountries.com/v2/continent/${region}`
         );
         const data = res.data;
         const formattedRegion = region.replace(/\b\w/g, c => c.toUpperCase());
@@ -70,9 +70,7 @@ export const CountriesContextProvider = props => {
     try {
       setIsLoading(true);
 
-      const res = await axios.get(
-        `https://restcountries.eu/rest/v2/alpha/${code}`
-      );
+      const res = await axios.get(`https://restcountries.com/v2/alpha/${code}`);
       const data = res.data;
 
       const {
@@ -132,9 +130,7 @@ export const CountriesContextProvider = props => {
 
   const getBorderCountries = async code => {
     try {
-      const res = await axios.get(
-        `https://restcountries.eu/rest/v2/alpha/${code}`
-      );
+      const res = await axios.get(`https://restcountries.com/v2/alpha/${code}`);
       const data = res.data;
 
       const countriesData = { name: data.name, code: data.alpha3Code };
